@@ -3,18 +3,19 @@
 	<link href="https://fonts.googleapis.com/css?family=Oswald:500" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
-<body>
+<body style="overflow-x:hidden;">
 	<p id="footer" ; > Today.by FAMCS By: Anton Gatsko, 8 group 2 course 2017</p>
 	 <div id="logo" width= "300px" align ="top" href="vk.com" > TODAY </div>
 	<hr align="left" color="black" width="330px" size="8px" >
 	<p class="log"> Your daily portion of news.</p>
 	<p id="status_bar" align="right"> 
-			<u>Add news.</u> Logged in as Username 
+			<a href="vk.com">Add news.</a> Logged in as Username 
 				<img id="user" src="user.png"></p> 
 	<p id="weather"> <img class="status" src="weather.ico" >  Weather broadcast for today. </p>
 	<p id="currency"> <img class="status" src="dollar.jpg" >Currencies. </p>
 	<p id="date"> <img class="status" src="callendar.jpg" >26.02.2017 </p>
 <table style="border-collapse: collapse; margin-bottom: 0px;" >
+
 	<th><button class="top" > 	
 		<img class="topbutton" src="home.png" alt="home"> 
 			<p class="toptext">Home</p> 
@@ -58,9 +59,9 @@
 		</button>
 		</th>
 </table>
+<div class="body">
 	<h1> <u>Popular</u></h1>
-
-
+	
 
 
 	<div>
@@ -70,8 +71,10 @@
 				<p class="mainnews"> Pellentesque habitant morbi tristique senectus et netus et malesuada
 	fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.
 	Donec eu libero sit Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet </p> 
-			
+			<p id="time" style="position:absolute; top:350px; left:5px;"> 22:08</p>
+			<p id="author" style="position:absolute; top:340px; left:45px;"> Sirtoshych</p>
 	</button>
+	
 		</div>
 		<table >
 <tr>
@@ -118,6 +121,50 @@
 </tr>
 		
 </table>
+	<div class="right"> 
+		<h1> <u>Recent</u></h1>
+		<div class=tags">
+			<form action="" >
+				<input  type="radio" name="gender" value="male"> By name<br>
+				<input  type="radio" name="gender" value="female"> by tag<br>
+	  
+			</form>
+		</div>
+		 <input class="search" type="text" placeholder="Search..">
+			<button class="recent">
+				<p id="time"> 22:08</p>
+				<p class="recent"> This is no ordinary #rainbow. The cloud phenomenon, known as a 'fire rainbow', in Singapore last week</p>
+			</button>
+			<button class="recent"> 
+				<p id="time"> 22:07 </p>
+				<p class="recent"> Two women to be charged with murder of Kim Jong-nam, half-brother of North Korean leader - Malaysia's prosecutor</p>
+			</button>
+			<button class="recent"> 
+				<p id="time"> 22:06</p>
+				<p class="recent"> Man convicted of burgling Simon Cowell's London home and stealing jewellery worth almost £1m.</p>
+			</button>
+			<button class="recent"> 
+				<p id="time"> 22:05 </p>
+				<p class="recent"> Prison officer charged with gross negligence manslaughter over inmate death at HMP Woodhill</p>
+			</button>
+			<button class="recent"> 
+				<p id="time"> 22:04 </p>
+				<p class="recent"> US President Donald Trump proposes a $54bn (£43bn) increase in military spending</p>
+			</button>
+			<button class="recent"> 
+				<p id="time"> 22:03 </p>
+				<p class="recent"> Moonlight wins best picture at the #Oscars</p>
+			</button>
+			<button class="recent"> 
+				<p id="time"> 22:02 </p>
+				<p class="recent"> Casey Affleck wins best actor at the #Oscars for his role in Manchester by the Sea</p>
+			</button>
+			<button class="recent"> 
+				<p id="time"> 22:00 </p>
+				<p class="recent"> Zootopia wins best animated feature film at the #Oscars</p>
+			</button>
+			
+	</div>
 		
-		
+</div>
 </body></html>
