@@ -199,6 +199,7 @@ function getArticles(skipNumber, amount, filterConfig){
 	skipNumber = skipNumber || 0;
 	amount = amount || articles.length;
 	var sorted = articles;
+	var newarts = [];
 	if (filterConfig != null){
 		if (filterConfig.author != null){
 			sorted = sorted.filter(function (item) {
@@ -213,14 +214,17 @@ function getArticles(skipNumber, amount, filterConfig){
 			)
 		}
 		if (filterConfig.tags != null){
-		
-			
+			sorted = sorted.filter( function(item){
+					return (item.tags.indexOf(filterConfig.tags)!= -1)
+			}
+			)
+					
 		}
 		
 		
 		
 	}
-	sorted = sorted.slice(skipNumber, articles.length - amount+1);
+	sorted = sorted.slice(skipNumber, skipNumber + amount);
 	return sorted;
 }
 function getArticle(id){
@@ -328,7 +332,7 @@ console.log(getArticle(21));
 console.log("All articles;")
 console.log(articles);
 console.log("Sort articles by tag;")
-console.log(getArticles(0, 1, {author:'Ля'}));
+console.log(getArticles(0, 5, {tags:'Politics'}));
 
 removeArticle(21);
 
