@@ -1,8 +1,12 @@
-body{
-	margin-top:0px;
-	top:0px;
-	width:960px;
-}
+body {
+    
+	overflow-x:hidden; 
+	background-image: url('f.jpg');
+	background-size:cover;
+   }
+   .transparent {
+   
+   }
 table.top{
 	width:100%;
 }
@@ -106,18 +110,22 @@ img.status{
 button.top:hover{
 	background-color: #005FBF;
 	font-family: 'Oswald', serif;
-    color: white;
+  
 	transition-duration: 0.2s;
+	background-color: rgba(0, 95, 191, 0.9); /* Цвет фона и значение прозрачности */
 }
 button.newsmain:hover{
 	  
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 	transition-duration: 0.4s;
+	background-color: rgba(0, 95, 191, 0.7); /* Цвет фона и значение прозрачности */
+	color:white;
 }
 button.sidenews:hover{
-	  
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 	transition-duration: 0.4s;
+	background-color: rgba(0, 95, 191, 0.7); /* Цвет фона и значение прозрачности */
+	color: #005FBF;
 }
 p.sidenews{
 	line-height:1;
@@ -131,7 +139,7 @@ p.sidenews{
 
 div.left{ 
 	background-color:grey;
-	width:740px;
+	width:50%;
 }
 input[type=text] {
 	background-color: white;
@@ -158,6 +166,7 @@ button.sidenews2:hover{
 	  
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 	transition-duration: 0.4s;
+	color: #005FBF;
 }
 button.sidenews2{
 	margin-right:10px;
@@ -180,9 +189,9 @@ button.sidenews{
 	width: 200px;
 	
 	border:1px solid #005FBF;
-	background-color: white;
 	transition-duration: 0.4s;
-
+	background-color: rgba(250, 250, 250, 0.6); /* Цвет фона и значение прозрачности */
+   
 }
 p.recent{
 	font-family:'Oswald', serif;
@@ -213,7 +222,7 @@ button.newsmain{
 	border:1px solid #005FBF;
 	position: relative;
 	margin-left:20px;
-	background-color: white;
+	background-color: rgba(250, 250, 250, 0.6); /* Цвет фона и значение прозрачности */
 	transition-duration: 0.4s;
 	
 }
@@ -228,7 +237,7 @@ button.top{
 	float: left;
 	text-align: center;
     transition-duration: 0.2s;
-
+	background-color: rgba(250, 250, 250, 0.6); /* Цвет фона и значение прозрачности */
 }
 h1 {
 	left:30px;
