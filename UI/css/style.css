@@ -66,48 +66,9 @@ div.body{
 	float:bottom;
 	margin-bottom: -5px;
 }
-.status{
-	height:30px;
-	width:30px;
-	margin-right:3px;
-	margin-top: 5px;
-	float:bottom;
-	margin-bottom: -5px;
 
-}
 
-input[type=text] {
-	background-color: white;
-	font-size:36px;
-	background-repeat: no-repeat;
-	size: 500px;
 
-	-webkit-transition: width 0.4s ease-in-out;
-	transition: width 0.4s ease-in-out;
-}
-input[type=text]:focus {
-	font-size:36px;
-}
-input:focus {
-	border: 3px solid #555;
-}
-.search{
-	font-family:'Oswald', serif;
-	font-size: 12px;
-	width:350px;
-	height:35px;
-	float:right;
-	position:absolute;
-	top:10px;
-	left:140px;
-
-}
-.radio{
-
-	position:absolute;
-	top:10px;
-	right:0px;
-}
 table.top{
 	width:100%;
 }
@@ -137,12 +98,7 @@ table.top{
  		color: #005FBF;
 		margin-top:-30px;
 }
-#status_bar{
-	font-family: 'Oswald', serif;
-	position: absolute;
-	top: 0px;
-	right: 40px;
-}
+
 #weather{
 
 	font-family: 'Oswald', serif;
@@ -179,7 +135,121 @@ table.top{
 	right: -30px;
 	top:5px;
 }
+textarea.add-title{
+	width: 100%;
+	height: 50px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	resize: none;
+	overflow: hidden;
+	font-family:'Oswald', serif;
+	font-size: 25px;
+}
+textarea.add-summary{
+	width: 100%;
+	height: 100px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	resize: none;
+	overflow: hidden;
+	font-family:'Oswald', serif;
+	font-size: 25px;
+}
+textarea.add-content{
+	width: 100%;
+	height: 200px;
+	padding: 0px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	resize: none;
+	overflow: hidden;
+	font-family:'Oswald', serif;
+	font-size: 25px;
+}
+textarea.add-tag{
+	width: 100%;
+	height: 50px;
+	padding: 0px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	resize: none;
+	overflow: hidden;
+	font-family:'Oswald', serif;
+	font-size: 25px;
+}
+p.create-news-text{
+	position: relative;
+	margin-bottom: 5px;
+	left:10px;
+}
+div.send-news{
+	font-family:'Oswald', serif;
+	font-size: 36px;
+	width: 100px;
+	height: 50px;
+	top:10px;
+	right:10px;
+	position: absolute;
+	user-select: none;
+}
+div.send-news:hover{
+	user-select: none;
+	transition-duration: 0.4s;
+	background-color: rgba(0, 95, 191, 0.7);
+	color: white;
+}
+div.top-right{
 
+	width:300px;
+	height:170px;
+	position: absolute;
+	top:0px;
+	right:0px;
+}
+div.create-news-wrapper{
+	user-select: none;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 1;
+}
+div.create-news-{
+	line-height:0.9;
+	left: 100px;
+	top:80px;
+	width: 85%;
+	height: 80%;
+	position:absolute;
+	background-color: aliceblue;
+
+
+	font-family:'Oswald', serif;
+	font-size: 36px;
+}
+div.register{
+	position: absolute;
+
+	width: 80px;
+	right: 120px;
+	top:10px;
+	font-family:'Oswald', serif;
+	font-size: 20px;
+	height: 30px;
+	transition-duration: 0.4s;
+}
+.register:hover{
+	background-color: #005FBF; /* Цвет фона и значение прозрачности */
+	transition-duration: 0.4s;
+}
 p{
 	margin-top:0px;
 	font-size: 24px;
@@ -223,7 +293,7 @@ p{
 	visibility: hidden;
 	font-family:'Oswald', serif;
 	font-size: 10px;
-	
+
 
 }
 .mainnews-p{
@@ -260,6 +330,10 @@ p{
 
 
 }
+table.top-table{
+	border-collapse: collapse;
+	margin-bottom: 0px;
+}
 .recent-time{
     font-family:'Oswald', serif;
     font-size: 14px;
@@ -285,16 +359,24 @@ div.newsmain:hover{
 	background-color: rgba(0, 95, 191, 0.7); /* Цвет фона и значение прозрачности */
 	color:white;
 }
-
+div.table{
+	width: 430px;
+	height: 450px;
+	float:left;
+	display: table;
+}
 div.sidenews{
     font-family: 'Oswald', serif;
     font-size: 16px;
-    height: 206px;
+    height: 205px;
     width: 200px;
+	margin:5px;
     border:1px solid #005FBF;
     transition-duration: 0.4s;
-    position: relative;
+	position: relative;
+	display: inline-table;
     background-color: rgba(250, 250, 250, 0.6);
+
 }
 div.sidenews:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
@@ -303,12 +385,18 @@ div.sidenews:hover{
     color: #005FBF;
 }
 .sidenews-pic{
-    width:200px;
+    width:100%;
     height:120px;
     background-color: red;
     background-size: cover;
     position: relative;
 	text-shadow: 2px 2px 2px rgba(0,0,0,.5);
+}
+.row{
+	width: 430px;
+	height: 225px;
+	display: table-row;
+
 }
 .sidenews-disc{
     width:200px;
@@ -464,6 +552,9 @@ div.full-news-wrapper{
 }
 
 
+.add-news:hover{
+	opacity: 0.8;
+}
 #yes-button{
     width: 50px;
     height: 20px;
@@ -520,7 +611,23 @@ margin-top:10px;
 margin-bottom:0px;
 }
 
+button.add-news{
 
+	background-color:#005FBF ;
+	color: white;
+	position: relative;
+
+	height: 60px;
+	top:10px;
+
+	padding: 14px 20px;
+	border: none;
+	cursor: pointer;
+	font-family:'Oswald', serif;
+	font-size: 20px;
+	transition-duration: 0.4s;
+	display: inline-block;
+}
 #read_more{
 
 	font-family:'Oswald', serif;
@@ -530,4 +637,64 @@ margin-bottom:0px;
 	position: absolute;
 	margin-top:10px;
 	bottom:35px;
+}
+/* login form */
+input[type=text], input[type=password] {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button.login{
+	width: 100px;
+	height: 60px;
+	top:10px;
+	position: relative;
+	display: inline-block;
+	background-color:#005FBF ;
+	color: white;
+	padding: 14px 20px;
+	border: none;
+	cursor: pointer;
+	font-family:'Oswald', serif;
+	font-size: 20px;
+
+	transition-duration: 0.4s;
+}
+div.status{
+	position: absolute;
+	top:70px;
+	visibility: collapse;
+	font-family:'Oswald', serif;
+	font-size: 20px;
+}
+button:hover {
+	opacity: 0.8;
+	color: white;
+}
+input[type=text], select {
+	width: 100%;
+	top:10px;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	position: relative;
+}
+input[type=password], select {
+	width: 100%;
+	top:5px;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	position: relative;
 }
