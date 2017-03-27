@@ -1,14 +1,14 @@
 
 var articleHandler = (function (){
-    var Articles = JSON.parse(localStorage.getItem('data'));
+    var articles = JSON.parse(localStorage.getItem('data'));
     window.addEventListener('beforeunload', function () {
-        if (!Articles) {
-            localStorage.setItem('data', JSON.stringify(articles));
-        } else {
+        if (!articles) {
             localStorage.setItem('data', JSON.stringify(Articles));
+        } else {
+            localStorage.setItem('data', JSON.stringify(articles));
         }
     });
-    var articles = [
+    var Articles = [
         {  /* main news */
             id: '1',
             title: "Минское «Динамо» обыграло ярославский «Локомотив»'",
@@ -467,7 +467,7 @@ var ArticleRenderer = (function () {
         /*Recent news*/
         var fillRecentNews = function (filterConfig) {
             var i = 0;
-            for (i; i < articles.length/2; i++) {
+            for (i; i < articles.length; i++) {
                 var article = articles[i];
                 if (articleHandler.tagcheck(filterConfig,articles[i])) {
                     RECENT_NEWS.appendChild(renderRecentNews(articles[i], filterConfig))
@@ -659,19 +659,23 @@ var handleEvents = (function () {
     function handleSend(event) {
 
             article = {
-                id: '' + articleHandler.articles.length + 1,
+                id: articleHandler.articles.length + 1,
                 title: document.querySelector('.add-title').value,
-                summary: document.querySelector('.add-summary').value,
+                summary: document.querySelector('.add-summary').value.trim(),
                 createdAt: new Date('2017-02-27T23:00:00'),
                 author: user.nick(),
-                content: document.querySelector('.add-content').value,
-                tags: [document.querySelector('.add-tag').value, 'Default'],
+                content: document.querySelector('.add-content').value.trim(),
+                tags: [document.querySelector('.add-tag').value.trim(), 'Default'],
                 image: 'images/1.jpg'
             }
             articleHandler.articles.push(article);
             TEMPLATE_FULL_BACKGROUND = document.querySelector('.create-news-wrapper');
             TEMPLATE_FULL_BACKGROUND.remove();
-
+            console.log(articleHandler.articles)
+            ArticleRenderer.delRec();
+            ArticleRenderer.delSid();
+            ArticleRenderer.fillRecent('Default');
+            ArticleRenderer.fillSide('Default');
 
     }
     function blink() {
