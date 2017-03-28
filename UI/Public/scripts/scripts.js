@@ -308,7 +308,6 @@ var articleHandler = (function (){
         else return true;
     };
 
-
     var removeArticle = function (id){
         for (var i = 0; i <articles.length; i ++)
             if (articles[i].id == id)
@@ -347,6 +346,8 @@ var articleHandler = (function (){
         }
         return false;
     };
+
+
     return{
         getMultiple: getArticles,
         getById: getArticle,
@@ -370,6 +371,9 @@ var configFilter = (function () {
   }
   function handleFilterChange(event) {
       var target = event.target;
+      while (target.nodeName !== 'BUTTON'){
+          target = target.parentNode;
+      }
       filter = target.querySelector('.toptext').textContent;
       if (filter === 'Home')
           filter = 'Default'
@@ -377,6 +381,8 @@ var configFilter = (function () {
       ArticleRenderer.fillSide(filter);
       ArticleRenderer.delRec();
       ArticleRenderer.fillRecent(filter);
+      if (!user.islogged())
+            user.hide();
 
   }
   return{
@@ -427,17 +433,19 @@ var ArticleRenderer = (function () {
             var j = 0;
             while ( (j !== 2) && (i!=articles.length -1)) {
                 if (articleHandler.tagcheck(filterConfig,articles[i])) {
-                    rows[0].appendChild(renderSideNews(articles[i]))
+                    rows[0].appendChild(renderSideNews(articles[i]));
+                    j++;
                 }
-                j++;
+
                 i++;
             }
             j = 0;
             while ( (j !== 2)&& (i!=articles.length)) {
                 if (articleHandler.tagcheck(filterConfig,articles[i])) {
-                    rows[1].appendChild(renderSideNews(articles[i]))
+                    rows[1].appendChild(renderSideNews(articles[i]));
+                    j++;
                 }
-                j++;
+
                 i++;
             }
 
@@ -466,12 +474,17 @@ var ArticleRenderer = (function () {
 
         /*Recent news*/
         var fillRecentNews = function (filterConfig) {
-            var i = 0;
-            for (i; i < articles.length; i++) {
+            var i = 5;
+            var j = 0;
+            console.log(articleHandler.articles)
+            while ( (i != articleHandler.articles.length) && (j != 8))
+            {
                 var article = articles[i];
                 if (articleHandler.tagcheck(filterConfig,articles[i])) {
                     RECENT_NEWS.appendChild(renderRecentNews(articles[i], filterConfig))
+                    j++;
                 }
+                i++;
             }
 
         };
@@ -495,14 +508,20 @@ var ArticleRenderer = (function () {
          */
 
         var handleDelete = function(target){
-
             if (target.parentNode.classList[0] === 'recent-n'){
+                id = target.parentNode.getAttribute('data-id')
+                articleHandler.remove(id);
             RECENT_NEWS.removeChild(target.parentNode);
+            console.log(articleHandler.articles)
             }
             if (target.parentNode.classList[0] === 'sidenews-disc'){
+
                 target = target.parentNode;
-                rows = document.querySelector(".row");
+                rows = target.parentNode.querySelector(".row");
+                id = target.parentNode.getAttribute('data-id');
+                articleHandler.remove(id);
                 rows.removeChild(target.parentNode)
+
             }
         };
     var handleEdit = function (target) {
@@ -805,10 +824,13 @@ var user = (function () {
             item.style.visibility = 'hidden';
             return item;
         });
-        var add_news = document.querySelector(".add-news")
-        add_news.innerText = 'Login to add news';
-        document.querySelector(".login").innerText = 'Login';
-        document.querySelector(".status").style.visibility = 'hidden';
+
+        if (!ISLOGGED) {
+            var add_news = document.querySelector(".add-news")
+            add_news.innerText = 'Login to add news';
+            document.querySelector(".login").innerText = 'Login';
+            document.querySelector(".status").style.visibility = 'hidden';
+        }
 
     };
     return{
