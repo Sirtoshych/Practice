@@ -420,7 +420,6 @@ div.recent-n{
 	font-size: 36px;
 	transition: height 4s;
     transition-duration: 0.8s;
-
     position: relative;
 }
 div.recent-n:hover{

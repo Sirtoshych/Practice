@@ -4,7 +4,7 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald:500" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body style="overflow-x:hidden; background-image: url('images/bacl.jpg');">
+<body style="background-image: url('images/bacl.jpg');">
 
     <div class = "top-right">
 
@@ -119,7 +119,7 @@
     </div>
 
     <template id="template-sidenews">
-        <div class="sidenews" data-id="id">
+        <div class="sidenews" data-id="id" data-action="showArticle" >
             <div class ="sidenews-pic">
                 <h3 class="h3" align = left >#</h3>
             </div>
@@ -127,10 +127,10 @@
                 <p class="sidenews-p">#</p>
                 <p class="time">22:08</p>
                 <p class="author">Sirtoshych</p>
-                <button class="delete">
+                <button class="delete" data-action="deleteArticle" data-id="id">
                     Delete
                 </button>
-                <button class="edit">
+                <button class="edit" data-action="editArticle" data-id="id">
                     Edit
                 </button>
 
@@ -139,14 +139,14 @@
         </div>
     </template>
 <template id="template-recent-news" >
-    <div class="recent-n" data-id="id" >
+    <div class="recent-n" data-id="id" data-action="showArticle" >
         <p class="recent-time"> 22:08  </p>
         <p class="recent"> # </p>
         <p class="recent-content">##</p>
-        <button class="delete" >
+        <button class="delete" data-action="deleteArticle">
             Delete
         </button>
-        <button class="edit" >
+        <button class="edit" data-action="editArticle">
             Edit
         </button>
     </div>
@@ -210,7 +210,11 @@
 
         </div>
 </template>
-
+    <script src = "scripts/serverWorker.js"></script>
+    <script src="scripts/util.js"></script>
+    <script src="scripts/user.js"></script>
+    <script src = "scripts/ArticleRenderer.js"></script>
+    <script src ="scripts/eventHandler.js"></script>
 <script src="scripts/scripts.js">
 
 </script>
