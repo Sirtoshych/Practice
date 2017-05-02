@@ -16,12 +16,19 @@ var serverWoker = (function (){
         var article =  JSON.parse(xhr.responseText);
         return article;
     }
+    function sendArticle(article) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("PUT", '/addarticle');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.send(JSON.stringify(article));
+    }
     function removeArticle (id){
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "/delete/" +id, false);
         xhr.send();
     }
     return{
+        sendArticle: sendArticle,
         removeArticle: removeArticle,
         getArticles: getArticles,
         getArticle: getArticle,

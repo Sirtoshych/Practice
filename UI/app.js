@@ -15,15 +15,20 @@ app.get ('/articles', function(req, res){
     res.json(db.articles.find());
 });
 app.get('/article/:id', function(req,res){
-    var article  = db.articles.findOne();
+    var article  = db.articles.findOne({id: req.params.id});
     res.json(article);
+});
+app.put('/addarticle', function (req,res) {
+    db.articles.save(req.body);
+    res.send(req.body);
+
 });
 app.get('/delete/:id', function (req,res) {
     var id = req.params.id;
     var article = db.articles.findOne({id: req.params.id});
     db.deletedArticles.save(article);
     db.articles.remove({id: id});
-    res.send();
+    res.send(req.body);
 });
 app.put('/articleEdit/', function (req, res) {
     var index = req.body.Id;
