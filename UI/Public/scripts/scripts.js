@@ -6,17 +6,6 @@ TO DO list:
 4. fix delete sidenews
  */
 var articleHandler = (function (){
-    var articles = JSON.parse(localStorage.getItem('data'));
-    if (!articles){
-        articles = Articles;
-    }
-    window.addEventListener('beforeunload', function () {
-        if (!articles) {
-            localStorage.setItem('data', JSON.stringify(Articles));
-        } else {
-            localStorage.setItem('data', JSON.stringify(articles));
-        }
-    });
 
     Articles = serverWoker.getArticles();
 
@@ -152,7 +141,7 @@ var articleHandler = (function (){
         edit: editArticle,
         remove: removeArticle,
         tags: alltags,
-        articles: articles,
+        articles: Articles,
         tagcheck: checkNewsForTag
     };
 })();
@@ -200,25 +189,3 @@ window.onload = function () {
 
 
 }
-/*
- <div >
- <form action="" >
- <input  type="radio" name="gender" value="male"> By name<br>
- <input  type="radio" name="gender" value="female"> By tag<br>
-
- </form>
- </div>
-
- <input class="search" type="text" placeholder="Search..">
- */
-    /*
-// Get the modal
-var modal = document.getElementById('id01');
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-    */
