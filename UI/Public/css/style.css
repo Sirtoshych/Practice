@@ -74,7 +74,7 @@ table.top{
 }
 
 #main-news-pic{
-	text-shadow: 2px 2px 2px rgba(0,0,0,.5);
+	//text-shadow: 2px 2px 2px rgba(0,0,0,.5);
 	top:0px;
 	left:-5px;
 	position: relative;
@@ -388,10 +388,10 @@ div.sidenews:hover{
 .sidenews-pic{
     width:100%;
     height:120px;
-    background-color: red;
+    //background-color: red;
     background-size: cover;
     position: relative;
-	text-shadow: 2px 2px 2px rgba(0,0,0,.5);
+	//text-shadow: 2px 2px 2px rgba(0,0,0,.5);
 }
 .row{
 	width: 430px;
@@ -585,18 +585,20 @@ h2{
 	line-height:1;
 	font-family:'Oswald', serif;
 	font-size: 30px;
+	font-weight: 100;
 	text-align: left;
-	color: white;
+	color:  #005FBF;
 	position: absolute;
 }
 h3{
     line-height:1;
     margin:0px;
-	font-family:'Oswald', serif;
-	font-size: 18px;'
+	font-family:'Oswald', san-serif;
+	font-size: 18px;
+	font-weight: 300;
     display: table-cell;
-	vertical-align: bottom;
-	color: white;
+	//vertical-align: bottom;
+	color: #005FBF;
     bottom:0px;
     position: absolute;
 

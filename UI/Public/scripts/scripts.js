@@ -5,6 +5,7 @@ TO DO list:
 3. fix main news
 4. fix delete sidenews
  */
+var filter = 'Default';
 var articleHandler = (function (){
 
     Articles = serverWoker.getArticles();
@@ -43,9 +44,9 @@ var articleHandler = (function (){
         return sorted;
     };
     var getArticle = function (id){
-        for (var i = 0; i < articles.length; i++)
-            if (articles[i].id == id)
-                return articles[i];
+        for (var i = 0; i < Articles.length; i++)
+            if (Articles[i].id == id)
+                return Articles[i];
         return false;
     };
     var validateArticle = function (article){
@@ -66,26 +67,8 @@ var articleHandler = (function (){
             return false;
         return true;
     };
-    var editArticle = function (id, article){
-        for (var i = 0; i < articles.length; i++){
-            if (articles[i].id == id)
-                break;
-        }
-        {
-            if (article.title != null && article.title.length < 100){
-                articles[i].title = article.title;
-            }
-            if (article.summary != null && article.summary.length < 200){
-                articles[i].summary = article.summary;
-            }
-            if (article.content != null){
-                articles[i].content = article.content;
+    var editArticle = function (article){
 
-            }
-            return true;
-        }
-
-        return false;
     };
     var checkNewsForTag = function(tag,article){
         if (article.tags.indexOf(tag) == -1)
@@ -94,11 +77,12 @@ var articleHandler = (function (){
     };
 
     var removeArticle = function (id){
-        for (var i = 0; i <articles.length; i ++)
-            if (articles[i].id == id)
+        for (var i = 0; i <Articles.length; i ++)
+            if (Articles[i].id == id)
                 break;
-        if (i != articles.length){
-            articles.splice(i,1);
+        if (i != Articles.length){
+            Articles.splice(i,1);
+            serverWoker.removeArticle(id);
             return true;
         }
         return false;
@@ -148,7 +132,7 @@ var articleHandler = (function (){
 var configFilter = (function () {
   var TOP_BAR;
   var ALL_TAGS;
-  var filter;
+
   function init() {
       ALL_TAGS = articleHandler.tags;
       TOP_BAR = document.getElementById('top-table');
@@ -159,9 +143,9 @@ var configFilter = (function () {
       while (target.nodeName !== 'BUTTON'){
           target = target.parentNode;
       }
-      filter = target.querySelector('.toptext').textContent;
+      change(target);
       if (filter === 'Home')
-          filter = 'Default'
+          filter = 'Default';
       ArticleRenderer.delSid();
       ArticleRenderer.fillSide(filter);
       ArticleRenderer.delRec();
@@ -170,9 +154,13 @@ var configFilter = (function () {
             user.hide();
 
   }
+  function change(target){
+      filter =  target.querySelector('.toptext').textContent;
+  }
   return{
       init: init,
-      filter: filter
+
+
   }
 })();
 

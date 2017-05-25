@@ -8,7 +8,7 @@ var ArticleRenderer = (function () {
     var RECENT_NEWS;
     var RECENT_NEWS_TEMPLATE;
     var articles;
-    var filterConfig;
+    var filterConfig = 'Default';
     var i =0;
 
     function init() {
@@ -34,12 +34,13 @@ var ArticleRenderer = (function () {
         sum[0].innerHTML = articles[0].summary;
         var author = main_news_summary[0].getElementsByClassName('author');
         author[0].innerHTML = articles[0].author;
-        document.querySelector('.newsmain').setAttribute('id',''+articles[0]);;
+        document.querySelector('.newsmain').setAttribute('data-id',''+articles[0].id);
         return main_news_summary;
     };
 
     /*Side news*/
     var fillSideNews = function (filterConfig) {
+        articles = serverWoker.getArticles();
         i = 0;
         rows = document.querySelectorAll(".row");
         var j = 0;
@@ -77,7 +78,7 @@ var ArticleRenderer = (function () {
         var template = SIDE_NEWS_TEMPLATE;
         template.content.querySelector(".h3").innerHTML = article.title;
         template.content.querySelector(".sidenews-p").innerHTML = article.summary;
-        template.content.querySelector(".sidenews-pic").style.backgroundImage = "url(" + article.image + ")";
+        //template.content.querySelector(".sidenews-pic").style.backgroundImage = "url(" + article.image + ")";
         template.content.querySelector(".sidenews").setAttribute('data-id', '' + article.id);
         template.content.querySelector(".delete").setAttribute('data-id',''+article.id);
         template.content.querySelector(".edit").setAttribute('data-id',''+article.id);
@@ -87,9 +88,10 @@ var ArticleRenderer = (function () {
 
     /*Recent news*/
     var fillRecentNews = function (filterConfig) {
+        articles = serverWoker.getArticles();
+        console.log(articles);
         var i = 5;
         var j = 0;
-        console.log(articleHandler.articles)
         while ( (i != articleHandler.articles.length) && (j != 8))
         {
             var article = articles[i];
@@ -143,7 +145,7 @@ var ArticleRenderer = (function () {
             deleteAllSideNews();
             fillSideNews(filterConfig);
         });
-        console.log(articleHandler.articles)
+
     };
 
     return {

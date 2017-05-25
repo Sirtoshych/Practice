@@ -72,16 +72,16 @@
 
         <h1 class="popular"> <u>Popular</u></h1>
         <div>
-            <div class="newsmain" data-id="id" style="float:left;">
+            <div class="newsmain" data-id="id" style="float:left; "data-action="showArticle">
                 <div id = "main-news-pic">
-                    <img class="mainnews" src="images/m.jpg">
+
                     <h2 id="h2">##</h2>
                 </div>
 
                 <div class="main-news-disc">
                     <p class="mainnews-p"> #
                     </p>
-                    <p class="time">22:08</p>
+                    <p class="time"></p>
                     <p class="author">Sirtoshych</p>
                     <button class="delete">
                         Delete
@@ -125,7 +125,7 @@
             </div>
             <div class ="sidenews-disc">
                 <p class="sidenews-p">#</p>
-                <p class="time">22:08</p>
+                <p class="time"></p>
                 <p class="author">Sirtoshych</p>
                 <button class="delete" data-action="deleteArticle" data-id="id">
                     Delete
@@ -140,7 +140,7 @@
     </template>
 <template id="template-recent-news" >
     <div class="recent-n" data-id="id" data-action="showArticle" >
-        <p class="recent-time"> 22:08  </p>
+        <p class="recent-time">      </p>
         <p class="recent"> # </p>
         <p class="recent-content">##</p>
         <button class="delete" data-action="deleteArticle">
